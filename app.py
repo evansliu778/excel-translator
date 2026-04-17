@@ -231,10 +231,14 @@ if uploaded_file:
 
         st.markdown("**📊 翻譯預估**")
         c1, c2, c3, c4 = st.columns(4)
-        c1.metric("工作表", f"{len(wb_preview.sheetnames)} 個")
-        c2.metric("含中文儲存格", f"{total_preview} 格")
-        c3.metric("預估費用", f"USD ${est_cost:.4f}")
-        c4.metric("約新台幣", f"TWD ${est_cost * 32:.1f}")
+c1.metric("工作表", f"{len(wb_preview.sheetnames)} 個")
+c2.metric("含中文儲存格", f"{total_preview} 格")
+with c3:
+    st.caption("預估費用")
+    st.write(f"**USD ${est_cost:.4f}**")
+with c4:
+    st.caption("約新台幣")
+    st.write(f"**TWD ${est_cost * 32:.1f}**")
         st.caption(f"預估 Token：輸入 {input_tok:,} / 輸出 {output_tok:,}・預估批次：{total_batches} 批")
         st.divider()
     except Exception as e:
