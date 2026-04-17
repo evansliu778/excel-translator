@@ -245,7 +245,7 @@ if uploaded_file:
         st.error(f"無法讀取檔案：{e}")
         st.stop()
 
-if st.button("🚀 開始翻譯　翻訳開始"):
+if st.button("🚀 開始翻譯"):
     if not api_key:
         st.error("請輸入 Claude API Key")
         st.stop()
